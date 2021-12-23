@@ -29,7 +29,16 @@ namespace Repository.Implementations
 
         public bool Delete(Company entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                AppDbContext<Company>.datas.Remove(entity);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
         }
 
         public Company Get(Predicate<Company> filter)
@@ -39,12 +48,33 @@ namespace Repository.Implementations
 
         public List<Company> GetAll(Predicate<Company> filter)
         {
-            throw new NotImplementedException();
+            return filter == null ? AppDbContext<Company>.datas : AppDbContext<Company>.datas.FindAll(filter);
         }
 
         public bool Update(Company entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var company = Get(m => m.Id == entity.Id);
+                if(company != null)
+                {
+                    if (!string.IsNullOrEmpty(entity.Name))
+                        company.Name = entity.Name;
+
+                    if (!string.IsNullOrEmpty(entity.Adrress))
+                        company.Adrress = entity.Adrress;
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
         }
     }
 }

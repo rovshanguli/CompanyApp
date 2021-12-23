@@ -1,4 +1,5 @@
-﻿using Domain.Models;
+﻿using CompanyApplication.Controller;
+using Domain.Models;
 using Service;
 using Service.Helpers;
 using Service.Interfaces;
@@ -10,7 +11,8 @@ namespace CompanyApplication
     {
         static void Main(string[] args)
         {
-            CompanyService companyservice = new CompanyService();
+            CompanyController companyController = new CompanyController();
+            
             while (true)
             {
                 Menus();
@@ -22,67 +24,33 @@ namespace CompanyApplication
                     switch (option)
                     {
                         case (int)MyEnum.Menus.CreatCompany:
-                            Helper.WriteToConsole(ConsoleColor.Cyan, "Add company name");
-                            string companyname = Console.ReadLine();
-                            Helper.WriteToConsole(ConsoleColor.Cyan, "Add company adrress : ");
-                            string companyadrress = Console.ReadLine();
-                            Company company = new Company
-                            {
-                                Name = companyname,
-                                Adrress = companyadrress
-                            };                               
-                            var result = companyservice.Create(company);
-                                if (result != null)
-                                {
-                                    Helper.WriteToConsole(ConsoleColor.Green, $"{company.Id} {company.Name} company created");
-                                }                               
-                                else
-                                {
-                                    Helper.WriteToConsole(ConsoleColor.Red, "Something is wrong");
-                                
-                                }
-
+                            companyController.Creat();
                             break;
                         case (int)MyEnum.Menus.UpdateCompany:
+                            companyController.Update();
                             break;
                         case (int)MyEnum.Menus.DeleteCompany:
+                            companyController.Delete();
                             break;
                         case (int)MyEnum.Menus.GetCompanyById:
-                            Helper.WriteToConsole(ConsoleColor.Green, "Add company id");
-                        EnterId: string companyId = Console.ReadLine();
-                            int id;
-                            bool isIdTrue = int.TryParse(companyId, out id);
-                            if (isIdTrue)
-                            {
-                                var company1 = companyservice.GetById(id);
-                                if (company1 == null)
-                                {
-                                    Helper.WriteToConsole(ConsoleColor.Red, "Company was not found");
-                                    goto EnterId;
-                                }
-                                else
-                                {
-                                    Helper.WriteToConsole(ConsoleColor.Green, $"{company1.Id} - {company1.Name} - {company1.Adrress}");
-                                }
-                            }
-                            else
-                            {
-                                Helper.WriteToConsole(ConsoleColor.Red, "Try again Id");
-                                goto EnterId;
-
-                            }
+                            companyController.GetById();
                             break;
                         case (int)MyEnum.Menus.GetCompanyByName:
+                            companyController.GetByName();
                             break;
                         case (int)MyEnum.Menus.GetAllCompany:
+                            companyController.GetAll();
                             break;
-
                         default:
                             break;
                     }
                 }
             }
         }
+
+
+
+
         private static void Menus()
         {
             Helper.WriteToConsole(ConsoleColor.Gray, "Select option");
