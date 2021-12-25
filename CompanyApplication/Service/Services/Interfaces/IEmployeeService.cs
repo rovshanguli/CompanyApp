@@ -8,10 +8,10 @@ namespace Service.Interfaces
     public interface IEmployeeService
     {
         Employee Create(Employee model,int libraryId);
-        public void Delete(int id);
+        public void Delete(Employee employee);
         Employee GetById(int employeeId);
         public Employee GetByAge(int age);
-        public Employee Update(Employee entity, int id);
+        public Employee Update(int id, Employee entity);
         List<Employee> GetAll();
     }
 }

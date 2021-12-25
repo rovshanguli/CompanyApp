@@ -70,7 +70,7 @@ namespace CompanyApplication.Controller
         public void Delete()
         {
             Helper.WriteToConsole(ConsoleColor.Green, "Add company id");
-        EnterId: string companyId = Console.ReadLine();
+            EnterId: string companyId = Console.ReadLine();
             int id;
             bool isIdTrue = int.TryParse(companyId, out id);
             if (isIdTrue)

@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Domain.Models;
 using Service;
 using Service.Helpers;
-using Service.Interfaces;
+
 
 namespace CompanyApplication.Controller
 {
@@ -126,7 +124,7 @@ namespace CompanyApplication.Controller
                 }
                 else
                 {
-
+                    _employeeService.Delete(employee);
                     Helper.WriteToConsole(ConsoleColor.Red, $"{employee.Name} - Employee is deleted ");
 
                 }
@@ -139,7 +137,7 @@ namespace CompanyApplication.Controller
         }
         public void GetByAge()
         {
-        EnterEmployeeId: Helper.WriteToConsole(ConsoleColor.Green, "Add employee age");
+            EnterEmployeeId: Helper.WriteToConsole(ConsoleColor.Green, "Add employee age");
             string employeeAge = Console.ReadLine();
             int employeeage;
             bool isEmployeeIdTrue = int.TryParse(employeeAge, out employeeage);
@@ -165,27 +163,39 @@ namespace CompanyApplication.Controller
         }
         public void Update()
         {
-            Helper.WriteToConsole(ConsoleColor.Green, "Add Company Id");
+            Helper.WriteToConsole(ConsoleColor.Cyan, "Add employee's ID:");
             EnterId: string companyId = Console.ReadLine();
-            int Id;
-            bool isidtrue = int.TryParse(companyId, out Id);
-            Helper.WriteToConsole(ConsoleColor.Green, "Add new Company Name");
-            string newCompany = Console.ReadLine();
-            if (isidtrue)
+            int id;
+            bool isIdTrue = int.TryParse(companyId, out id);
+
+            Helper.WriteToConsole(ConsoleColor.Cyan, "Add new name for employee:");
+            string newName = Console.ReadLine();
+
+            Helper.WriteToConsole(ConsoleColor.Cyan, "Add new surname for employee:");
+            string newSurname = Console.ReadLine();
+
+            Helper.WriteToConsole(ConsoleColor.Cyan, "Add new age for employee:");
+            string newAge = Console.ReadLine();
+
+            int age;
+            bool isAgeTrue = int.TryParse(newAge, out age);
+
+            if (isIdTrue)
             {
-                Company company = new Company
+                Employee employee = new Employee
                 {
-                    Name = newCompany
+                    Name = newName,
+                    Surname = newSurname,
+                    Age = age
                 };
-                Employee employee = new Employee();
-                employee.Company = company;
-                _employeeService.Update(employee,Id);
-                Helper.WriteToConsole(ConsoleColor.Green, $"{employee.Id} - {employee.Name} - {employee.Company} -" +
-                    $" Company Updated");
+
+                Employee newEmployee = _employeeService.Update(id, employee);
+
+                Helper.WriteToConsole(ConsoleColor.Green, $"ID: {newEmployee.Id} - New name: {newEmployee.Name} - New surname: {newEmployee.Surname} - New age: {newEmployee.Age}");
             }
             else
             {
-                Helper.WriteToConsole(ConsoleColor.Red, "Try Again");
+                Helper.WriteToConsole(ConsoleColor.Red, "Employee was not found. Try again:");
                 goto EnterId;
             }
         }

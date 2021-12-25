@@ -67,24 +67,16 @@ namespace Service
                 return null;
             }
         }
-        public void Delete(int id)
-        {
-            var employee = GetById(id);
+        public void Delete(Employee employee)
+        {             
             _employeeRepository.Delete(employee);
         }
         public Employee GetByAge(int employeeAge)
         {
             try
             {
-                Employee employee = _employeeRepository.Get(m => m.Age == employeeAge);
-                if (employee == null)
-                {
-                    return null;
-                }
-                else
-                {
-                    return _employeeRepository.Get(m => m.Id == employeeAge);
-                }
+                return _employeeRepository.Get(m => m.Age == employeeAge);
+                
             }
             catch (Exception)
             {
@@ -93,14 +85,13 @@ namespace Service
 
 
         }
-        public Employee Update(Employee entity,int id)
+        public Employee Update(int id,Employee entity)
         {
             var employee = GetById(id);
             entity.Id = employee.Id;
             _employeeRepository.Update(employee);
             return entity;
         }
-
         public List<Employee> GetAll()
         {
             return _employeeRepository.GetAll(null);
