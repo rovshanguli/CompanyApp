@@ -12,6 +12,7 @@ namespace CompanyApplication
         static void Main(string[] args)
         {
             CompanyController companyController = new CompanyController();
+            EmployeeController employeeController = new EmployeeController();
             
             while (true)
             {
@@ -41,8 +42,26 @@ namespace CompanyApplication
                         case (int)MyEnum.Menus.GetAllCompany:
                             companyController.GetAll();
                             break;
-                        default:
+                        case (int)MyEnum.Menus.CreatEmployee:
+                            employeeController.Creat();
                             break;
+                        case (int)MyEnum.Menus.UpdateEmployee:
+                            employeeController.Update();
+                            break;
+                        case (int)MyEnum.Menus.GetEmployeeById:
+                            employeeController.GetById();
+                            break;
+                        case (int)MyEnum.Menus.DeleteEmployee:
+                            employeeController.Delete();
+                            break;
+                        case (int)MyEnum.Menus.GetEmployeeByAge:
+                            employeeController.GetByAge();
+                            break;
+                        case (int)MyEnum.Menus.GetAllEmployeeByCompanyId:
+                            employeeController.GetAll();
+                            break;
+
+
                     }
                 }
             }
@@ -54,10 +73,10 @@ namespace CompanyApplication
         private static void Menus()
         {
             Helper.WriteToConsole(ConsoleColor.Gray, "Select option");
-            Helper.WriteToConsole(ConsoleColor.Cyan, "1 - Creat Company       4 - Get Company By Id        7 - Creat Employee         10 - Delete Employee");
-            Helper.WriteToConsole(ConsoleColor.Cyan, "2 - Update Company      5- Get Company by Name       8 - UpdateEmployee         11 - Get Employee By Age");
-            Helper.WriteToConsole(ConsoleColor.Cyan, "3 - Delete Company      6 - Get All Company          9 - Get Employee By Id     12 - Get All Employee By Company Id");
-
+            Helper.WriteToConsole(ConsoleColor.Blue, "1 - Creat Company       4 - Get Company By Id        7 - Creat Employee         10 - Delete Employee");
+            Helper.WriteToConsole(ConsoleColor.Blue, "2 - Update Company      5- Get Company by Name       8 - UpdateEmployee         11 - Get Employee By Age");
+            Helper.WriteToConsole(ConsoleColor.Blue, "3 - Delete Company      6 - Get All Company          9 - Get Employee By Id     12 - Get All Employee By Company Id");
+            Helper.WriteToConsole(ConsoleColor.Green,"======================================================================================================================");
         }
 
        
