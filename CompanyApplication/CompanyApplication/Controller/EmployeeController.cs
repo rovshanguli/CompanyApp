@@ -140,8 +140,8 @@ namespace CompanyApplication.Controller
             EnterEmployeeId: Helper.WriteToConsole(ConsoleColor.Green, "Add employee age");
             string employeeAge = Console.ReadLine();
             int employeeage;
-            bool isEmployeeIdTrue = int.TryParse(employeeAge, out employeeage);
-            if (isEmployeeIdTrue)
+            bool isEmployeeAgeTrue = int.TryParse(employeeAge, out employeeage);
+            if (isEmployeeAgeTrue)
             {
                 var employee = _employeeService.GetByAge(employeeage);
                 if (employee == null)
@@ -151,7 +151,10 @@ namespace CompanyApplication.Controller
                 }
                 else
                 {
-                    Helper.WriteToConsole(ConsoleColor.Green, $"{employee.Name} - {employee.Surname} - {employee.Company.Name}");
+                    foreach(var item in employee)
+                    {
+                        Helper.WriteToConsole(ConsoleColor.Green, $"{item.Name} - {item.Surname} - {item.Age} - {item.Company.Name}");
+                    }
                 }
             }
             else

@@ -70,11 +70,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\Desktop\\ConsoleApp\\CompanyApp\\CompanyApplication\\CompanyApplication\\CompanyApplication.csproj",
+      "projectUniqueName": "C:\\Users\\user\\Desktop\\FinalApp\\CompanyApp\\CompanyApplication\\CompanyApplication\\CompanyApplication.csproj",
       "projectName": "CompanyApplication",
-      "projectPath": "C:\\Users\\user\\Desktop\\ConsoleApp\\CompanyApp\\CompanyApplication\\CompanyApplication\\CompanyApplication.csproj",
+      "projectPath": "C:\\Users\\user\\Desktop\\FinalApp\\CompanyApp\\CompanyApplication\\CompanyApplication\\CompanyApplication.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\Desktop\\ConsoleApp\\CompanyApp\\CompanyApplication\\CompanyApplication\\obj\\",
+      "outputPath": "C:\\Users\\user\\Desktop\\FinalApp\\CompanyApp\\CompanyApplication\\CompanyApplication\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -95,8 +95,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\user\\Desktop\\ConsoleApp\\CompanyApp\\CompanyApplication\\Service\\Service.csproj": {
-              "projectPath": "C:\\Users\\user\\Desktop\\ConsoleApp\\CompanyApp\\CompanyApplication\\Service\\Service.csproj"
+            "C:\\Users\\user\\Desktop\\FinalApp\\CompanyApp\\CompanyApplication\\Service\\Service.csproj": {
+              "projectPath": "C:\\Users\\user\\Desktop\\FinalApp\\CompanyApp\\CompanyApplication\\Service\\Service.csproj"
             }
           }
         }

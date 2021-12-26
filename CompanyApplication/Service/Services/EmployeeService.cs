@@ -72,11 +72,11 @@ namespace Service
         {             
             _employeeRepository.Delete(employee);
         }
-        public Employee GetByAge(int employeeAge)
+        public List<Employee> GetByAge(int employeeAge)
         {
             try
             {
-                return _employeeRepository.Get(m => m.Age == employeeAge);
+                return _employeeRepository.GetAll(m => m.Age == employeeAge);
                 
             }
             catch (Exception)

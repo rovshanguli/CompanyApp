@@ -10,7 +10,7 @@ namespace Service.Interfaces
         Employee Create(Employee model,int libraryId);
         public void Delete(Employee employee);
         Employee GetById(int employeeId);
-        public Employee GetByAge(int age);
+        public List<Employee> GetByAge(int age);
         public Employee Update(int id, Employee entity);
         List<Employee> GetAllById(int id);
     }

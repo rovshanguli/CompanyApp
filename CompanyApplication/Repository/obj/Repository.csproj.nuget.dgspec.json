@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\Desktop\\ConsoleApp\\CompanyApp\\CompanyApplication\\Repository\\Repository.csproj": {}
+    "C:\\Users\\user\\Desktop\\FinalApp\\CompanyApp\\CompanyApplication\\Repository\\Repository.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\Desktop\\ConsoleApp\\CompanyApp\\CompanyApplication\\Domain\\Domain.csproj": {
+    "C:\\Users\\user\\Desktop\\FinalApp\\CompanyApp\\CompanyApplication\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\Desktop\\ConsoleApp\\CompanyApp\\CompanyApplication\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Desktop\\FinalApp\\CompanyApp\\CompanyApplication\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\user\\Desktop\\ConsoleApp\\CompanyApp\\CompanyApplication\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\user\\Desktop\\FinalApp\\CompanyApp\\CompanyApplication\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\Desktop\\ConsoleApp\\CompanyApp\\CompanyApplication\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\user\\Desktop\\FinalApp\\CompanyApp\\CompanyApplication\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -62,14 +62,14 @@
         }
       }
     },
-    "C:\\Users\\user\\Desktop\\ConsoleApp\\CompanyApp\\CompanyApplication\\Repository\\Repository.csproj": {
+    "C:\\Users\\user\\Desktop\\FinalApp\\CompanyApp\\CompanyApplication\\Repository\\Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\Desktop\\ConsoleApp\\CompanyApp\\CompanyApplication\\Repository\\Repository.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Desktop\\FinalApp\\CompanyApp\\CompanyApplication\\Repository\\Repository.csproj",
         "projectName": "Repository",
-        "projectPath": "C:\\Users\\user\\Desktop\\ConsoleApp\\CompanyApp\\CompanyApplication\\Repository\\Repository.csproj",
+        "projectPath": "C:\\Users\\user\\Desktop\\FinalApp\\CompanyApp\\CompanyApplication\\Repository\\Repository.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\Desktop\\ConsoleApp\\CompanyApp\\CompanyApplication\\Repository\\obj\\",
+        "outputPath": "C:\\Users\\user\\Desktop\\FinalApp\\CompanyApp\\CompanyApplication\\Repository\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -90,8 +90,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\user\\Desktop\\ConsoleApp\\CompanyApp\\CompanyApplication\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\user\\Desktop\\ConsoleApp\\CompanyApp\\CompanyApplication\\Domain\\Domain.csproj"
+              "C:\\Users\\user\\Desktop\\FinalApp\\CompanyApp\\CompanyApplication\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\user\\Desktop\\FinalApp\\CompanyApp\\CompanyApplication\\Domain\\Domain.csproj"
               }
             }
           }

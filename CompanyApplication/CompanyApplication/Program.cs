@@ -72,7 +72,7 @@ namespace CompanyApplication
 
         private static void Menus()
         {
-            Helper.WriteToConsole(ConsoleColor.Gray, "Select option");
+            Helper.WriteToConsole(ConsoleColor.Gray, "Please Select option");
             Helper.WriteToConsole(ConsoleColor.Blue, "1 - Creat Company       4 - Get Company By Id        7 - Creat Employee         10 - Delete Employee");
             Helper.WriteToConsole(ConsoleColor.Blue, "2 - Update Company      5- Get Company by Name       8 - UpdateEmployee         11 - Get Employee By Age");
             Helper.WriteToConsole(ConsoleColor.Blue, "3 - Delete Company      6 - Get All Company          9 - Get Employee By Id     12 - Get All Employee By Company Id");

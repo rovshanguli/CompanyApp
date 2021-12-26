@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IAPi6ZqvENRXV9sHkkoaNXGRSpGuFSX0IoZ6dxnMUtxaGqR+Pv1hupvOezIUKj+9dYQxXK5PErStX2irgcsqTA==",
+  "dgSpecHash": "drufZyXBGmvTceK/e/cuVkDg+IW6BoswHNJlCjE4KpsLanOp8GfCPx2HYWJu3oygZjl6pHpXZXWzbHJZvqqj3Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\user\\Desktop\\ConsoleApp\\CompanyApp\\CompanyApplication\\Service\\Service.csproj",
+  "projectFilePath": "C:\\Users\\user\\Desktop\\FinalApp\\CompanyApp\\CompanyApplication\\Service\\Service.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
