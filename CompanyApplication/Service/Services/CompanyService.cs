@@ -32,15 +32,28 @@ namespace Service
             return _companyRepository.GetAll(null);
         }
         public Company GetById(int id)
-        {                       
-            return _companyRepository.Get(m => m.Id == id);            
+        {  if (count != 0)
+            {
+                return _companyRepository.Get(m => m.Id == id);
+            }
+            else
+            {
+                return null;
+            }
         }
         public Company Update(int id, Company model)
         {            
-             var company = GetById(id);
-             model.Id = company.Id;
-             _companyRepository.Update(model);
-             return model;                          
+            var company = GetById(id);
+            if (company != null)
+            {
+                model.Id = company.Id;
+                _companyRepository.Update(model);
+                return model;
+            }
+            else
+            {
+                return null;
+            } 
         }
 
         public List<Company> GetAllByName(string name)

@@ -170,21 +170,17 @@ namespace CompanyApplication.Controller
             EnterId: string companyId = Console.ReadLine();
             int id;
             bool isIdTrue = int.TryParse(companyId, out id);
-
-            Helper.WriteToConsole(ConsoleColor.Cyan, "Add new name for employee:");
-            string newName = Console.ReadLine();
-
-            Helper.WriteToConsole(ConsoleColor.Cyan, "Add new surname for employee:");
-            string newSurname = Console.ReadLine();
-
-            Helper.WriteToConsole(ConsoleColor.Cyan, "Add new age for employee:");
-            string newAge = Console.ReadLine();
-
-            int age;
-            bool isAgeTrue = int.TryParse(newAge, out age);
-
             if (isIdTrue)
             {
+                Helper.WriteToConsole(ConsoleColor.Cyan, "Add new name for employee:");
+                string newName = Console.ReadLine();
+
+                Helper.WriteToConsole(ConsoleColor.Cyan, "Add new surname for employee:");
+                string newSurname = Console.ReadLine();
+                Helper.WriteToConsole(ConsoleColor.Cyan, "Add new age for employee:");
+                string newAge = Console.ReadLine();
+                int age;
+                bool isAgeTrue = int.TryParse(newAge, out age);
                 Employee employee = new Employee
                 {
                     Name = newName,
@@ -193,8 +189,15 @@ namespace CompanyApplication.Controller
                 };
 
                 Employee newEmployee = _employeeService.Update(id, employee);
-
-                Helper.WriteToConsole(ConsoleColor.Green, $"ID: {employee.Id} - New name: {employee.Name} - New surname: {employee.Surname} - New age: {employee.Age}");
+                if(newEmployee != null) 
+                {
+                    Helper.WriteToConsole(ConsoleColor.Green, $"{newEmployee.Name } - {newEmployee.Surname} - {newEmployee.Age}");
+                }
+                else
+                {
+                    Helper.WriteToConsole(ConsoleColor.Red, "Employee was not found");
+                }
+                
             }
             else
             {

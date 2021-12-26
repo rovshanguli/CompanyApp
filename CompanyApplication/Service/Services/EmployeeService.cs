@@ -20,7 +20,7 @@ namespace Service
             _employeeRepository = new EmployeeRepository();
             _companyRepository = new CompanyRepository();
         }
-        public Employee Create(Employee model,int companyId)
+        public Employee Create(Employee model, int companyId)
         {
             try
             {
@@ -50,15 +50,15 @@ namespace Service
                 //}
                 //else
                 //{
-                    if (employee == null)
-                    {
-                        return null;
-                    }
-                    else
-                    {
-                        return _employeeRepository.Get(m => m.Id == employeeId);
-                    }               
-                    
+                if (employee == null)
+                {
+                    return null;
+                }
+                else
+                {
+                    return _employeeRepository.Get(m => m.Id == employeeId);
+                }
+
                 //}
             }
             catch (Exception ex)
@@ -69,7 +69,7 @@ namespace Service
             }
         }
         public void Delete(Employee employee)
-        {             
+        {
             _employeeRepository.Delete(employee);
         }
         public List<Employee> GetByAge(int employeeAge)
@@ -77,7 +77,7 @@ namespace Service
             try
             {
                 return _employeeRepository.GetAll(m => m.Age == employeeAge);
-                
+
             }
             catch (Exception)
             {
@@ -86,12 +86,19 @@ namespace Service
 
 
         }
-        public Employee Update(int id,Employee entity)
+        public Employee Update(int id, Employee entity)
         {
             var employee = GetById(id);
-            entity.Id = employee.Id;
-            _employeeRepository.Update(entity);
-            return entity;
+            if (employee != null)
+            {
+                entity.Id = employee.Id;
+                _employeeRepository.Update(entity);
+                return entity;
+            }
+            else
+            {
+                return null;
+            }
         }
         public List<Employee> GetAllById(int id)
         {

@@ -47,6 +47,7 @@ namespace CompanyApplication.Controller
             bool isIdTrue = int.TryParse(companyId, out id);                      
             if (isIdTrue)
             {
+
                 Helper.WriteToConsole(ConsoleColor.Green, "Add new company name ");
                 string newName = Console.ReadLine();
                 Helper.WriteToConsole(ConsoleColor.Green, "Add new company address ");
@@ -57,7 +58,14 @@ namespace CompanyApplication.Controller
                     Adrress = newAddress 
                 };
                 var newCompany = _companyservice.Update(id, company);
-                Helper.WriteToConsole(ConsoleColor.Green, $"Succesfully update : {newCompany.Name} - {newCompany.Adrress}");
+                if (newCompany != null)
+                {
+                    Helper.WriteToConsole(ConsoleColor.Green, $"Succesfully update : {newCompany.Name} - {newCompany.Adrress}");
+                }
+                else
+                {
+                    Helper.WriteToConsole(ConsoleColor.Red, "Company was not found");
+                }
             }
             else
             {
@@ -100,9 +108,10 @@ namespace CompanyApplication.Controller
             Helper.WriteToConsole(ConsoleColor.Green, "Add company id");
             EnterId: string companyId = Console.ReadLine();
             int id;
-            bool isIdTrue = int.TryParse(companyId, out id);
+            bool isIdTrue = int.TryParse(companyId, out id);           
             if (isIdTrue)
-            {
+            {   
+                
                 var company1 = _companyservice.GetById(id);
                 if (company1 == null)
                 {
