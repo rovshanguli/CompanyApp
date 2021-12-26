@@ -12,6 +12,6 @@ namespace Service.Interfaces
         Employee GetById(int employeeId);
         public Employee GetByAge(int age);
         public Employee Update(int id, Employee entity);
-        List<Employee> GetAll();
+        List<Employee> GetAllById(int id);
     }
 }

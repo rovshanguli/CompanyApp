@@ -44,19 +44,19 @@ namespace CompanyApplication.Controller
             Helper.WriteToConsole(ConsoleColor.Green, "Add company id");
             EnterId: string companyId = Console.ReadLine();
             int id;
-            bool isIdTrue = int.TryParse(companyId, out id);
-            Helper.WriteToConsole(ConsoleColor.Green, "Add new company name ");           
-            string newName = Console.ReadLine();
-            Helper.WriteToConsole(ConsoleColor.Green, "Add new company address ");
-            string newAddress = Console.ReadLine();
+            bool isIdTrue = int.TryParse(companyId, out id);                      
             if (isIdTrue)
             {
+                Helper.WriteToConsole(ConsoleColor.Green, "Add new company name ");
+                string newName = Console.ReadLine();
+                Helper.WriteToConsole(ConsoleColor.Green, "Add new company address ");
+                string newAddress = Console.ReadLine();
                 Company company = new Company()
                 {
                     Name = newName,
                     Adrress = newAddress 
                 };
-                var newCompany = _companyservice.Update(id,company);
+                var newCompany = _companyservice.Update(id, company);
                 Helper.WriteToConsole(ConsoleColor.Green, $"Succesfully update : {newCompany.Name} - {newCompany.Adrress}");
             }
             else

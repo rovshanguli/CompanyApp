@@ -60,7 +60,15 @@ namespace Repository.Implementations
                 var employee = Get(m => m.Id == entity.Id);
                 if (employee != null)
                 {
-                    employee.Company = entity.Company;
+                    if (!string.IsNullOrEmpty(entity.Name))
+                        employee.Name = entity.Name;
+
+                    if (!string.IsNullOrEmpty(entity.Surname))
+                        employee.Surname = entity.Surname;
+
+                    if (!string.IsNullOrEmpty(entity.Age.ToString()))
+                        employee.Age = entity.Age;
+
                     return true;
                 }
                 else

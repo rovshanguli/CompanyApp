@@ -23,28 +23,24 @@ namespace Service
             return model;
 
         }
-
         public void Delete(Company company)
         {
             _companyRepository.Delete(company);
         }
-
         public List<Company> GetAll()
         {
             return _companyRepository.GetAll(null);
         }
-
         public Company GetById(int id)
-        {
-            return _companyRepository.Get(m => m.Id == id);
+        {                       
+            return _companyRepository.Get(m => m.Id == id);            
         }
-
         public Company Update(int id, Company model)
-        {
-            var company = GetById(id);
-            model.Id = company.Id;
-            _companyRepository.Update(model);
-            return model;
+        {            
+             var company = GetById(id);
+             model.Id = company.Id;
+             _companyRepository.Update(model);
+             return model;                          
         }
 
         public List<Company> GetAllByName(string name)

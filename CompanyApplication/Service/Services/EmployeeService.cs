@@ -6,6 +6,7 @@ using Service.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Repository.Data;
 
 namespace Service
 {
@@ -89,12 +90,12 @@ namespace Service
         {
             var employee = GetById(id);
             entity.Id = employee.Id;
-            _employeeRepository.Update(employee);
+            _employeeRepository.Update(entity);
             return entity;
         }
-        public List<Employee> GetAll()
+        public List<Employee> GetAllById(int id)
         {
-            return _employeeRepository.GetAll(null);
+            return _employeeRepository.GetAll(m => m.Company.Id == id);
         }
     }
 }

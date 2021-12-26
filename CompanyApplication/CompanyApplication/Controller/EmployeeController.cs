@@ -191,7 +191,7 @@ namespace CompanyApplication.Controller
 
                 Employee newEmployee = _employeeService.Update(id, employee);
 
-                Helper.WriteToConsole(ConsoleColor.Green, $"ID: {newEmployee.Id} - New name: {newEmployee.Name} - New surname: {newEmployee.Surname} - New age: {newEmployee.Age}");
+                Helper.WriteToConsole(ConsoleColor.Green, $"ID: {employee.Id} - New name: {employee.Name} - New surname: {employee.Surname} - New age: {employee.Age}");
             }
             else
             {
@@ -201,10 +201,21 @@ namespace CompanyApplication.Controller
         }
         public void GetAll()
         {
-            var employees = _employeeService.GetAll();
-            foreach (var item in employees)
+            Helper.WriteToConsole(ConsoleColor.Cyan, "Enter the company's ID:");
+            string companyId = Console.ReadLine();
+            int id;
+            bool isIdTrue = int.TryParse(companyId, out id);
+            var employees = _employeeService.GetAllById(id);
+            if (isIdTrue)
             {
-                Helper.WriteToConsole(ConsoleColor.Green, $"{item.Id} - {item.Name} - {item.Company.Name}");
+                foreach (var item in employees)
+                {
+                    Helper.WriteToConsole(ConsoleColor.Green, $"{item.Id} - {item.Name} - {item.Company.Name}");
+                }
+            }
+            else
+            {
+                Helper.WriteToConsole(ConsoleColor.Red, "Company was not found");
             }
         }
     }
