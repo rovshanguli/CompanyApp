@@ -55,7 +55,6 @@ namespace Service
                 return null;
             } 
         }
-
         public List<Company> GetAllByName(string name)
         {
             return _companyRepository.GetAll(m=>m.Name==name);

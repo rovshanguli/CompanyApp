@@ -26,7 +26,6 @@ namespace Repository.Implementations
                 return false;
             }
         }
-
         public bool Delete(Employee entity)
         {
             try
@@ -42,17 +41,14 @@ namespace Repository.Implementations
 
             }
         }
-
         public Employee Get(Predicate<Employee> filter)
         {
             return filter == null ? AppDbContext<Employee>.datas[0] : AppDbContext<Employee>.datas.Find(filter);
         }
-
         public List<Employee> GetAll(Predicate<Employee> filter)
         {
             return filter == null ? AppDbContext<Employee>.datas : AppDbContext<Employee>.datas.FindAll(filter);
         }
-
         public bool Update(Employee entity)
         {
             try

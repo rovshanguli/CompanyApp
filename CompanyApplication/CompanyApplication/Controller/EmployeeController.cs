@@ -78,8 +78,8 @@ namespace CompanyApplication.Controller
             //    }
                 //else
                 //{
-                    EnterEmployeeId: Helper.WriteToConsole(ConsoleColor.Green, "Add employee id");
-                    string employeeId = Console.ReadLine();
+                    Helper.WriteToConsole(ConsoleColor.Green, "Add employee id");
+                    EnterId: string employeeId = Console.ReadLine();
                     int employeeid;
                     bool isEmployeeIdTrue = int.TryParse(employeeId, out employeeid);
                     if (isEmployeeIdTrue)
@@ -88,7 +88,7 @@ namespace CompanyApplication.Controller
                         if (employee == null)
                         {
                             Helper.WriteToConsole(ConsoleColor.Red, "Employee was not found");
-                            goto EnterEmployeeId;
+                            
                         }
                         else
                         {
@@ -98,7 +98,8 @@ namespace CompanyApplication.Controller
                     else
                     {
                         Helper.WriteToConsole(ConsoleColor.Red, "Enter correct id");
-                        goto EnterEmployeeId;
+                        goto EnterId;
+                        
                     }
             //    }
             //}
@@ -113,20 +114,18 @@ namespace CompanyApplication.Controller
             Helper.WriteToConsole(ConsoleColor.Green, "Add Employee Id");
             EnterId: string companyId = Console.ReadLine();
             int id;
-            bool istrue = int.TryParse(companyId, out id);
-            if (istrue)
+            bool isTrueId = int.TryParse(companyId, out id);
+            if (isTrueId)
             {
                 var employee = _employeeService.GetById(id);
                 if (employee == null)
                 {
-                    Helper.WriteToConsole(ConsoleColor.Green, "Employee is not found");
-                    goto EnterId;
+                    Helper.WriteToConsole(ConsoleColor.Red, "Employee was not found");                   
                 }
                 else
                 {
                     _employeeService.Delete(employee);
-                    Helper.WriteToConsole(ConsoleColor.Red, $"{employee.Name} - Employee is deleted ");
-
+                    Helper.WriteToConsole(ConsoleColor.Green, $"{employee.Name} - Employee is deleted ");
                 }
             }
             else
